@@ -24,12 +24,13 @@ export const appRouter = router({
       })
     )
     .mutation(async ({ input }) => {
-      const data = prisma.task.create({
+      const data = await prisma.task.create({
         data: {
           title: input.title,
           content: input.content,
         },
       });
+      console.log(data);
     }),
 });
 
